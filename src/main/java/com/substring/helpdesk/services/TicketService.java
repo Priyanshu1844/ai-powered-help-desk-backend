@@ -6,6 +6,9 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Optional;
 
 @Service
 @Getter
@@ -18,16 +21,16 @@ public class TicketService {
 
     //create ticket
 
-
+    @Transactional
     public Ticket createTicket(Ticket ticket) {
-
+        ticket.setId(null);
         return ticketRepository.save(ticket);
     }
 
     //update ticket
 
 
-    public Ticket updateTicket(Ticket ticket) {
+    public Ticket updateTicket (Ticket ticket) {
         return ticketRepository.save(ticket);
     }
 
@@ -38,6 +41,11 @@ public class TicketService {
 
 
     //get ticket by username
+    public Ticket getTicketByEmail(String email){
+        return ticketRepository.findByEmail(email)
+                .orElseThrow(()-> new RuntimeException("Ticket not found"));
+    }
+
 
 
 }

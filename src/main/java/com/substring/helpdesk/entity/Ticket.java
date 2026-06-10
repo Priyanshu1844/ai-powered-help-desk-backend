@@ -16,18 +16,21 @@ import java.time.LocalDateTime;
 public class Ticket {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     @Lob
     private String summary;
     @Enumerated(EnumType.STRING)
     private Priority priority;
     @Column(unique=true)
-    private String username;
+    private String email;
 
     private LocalDateTime createdOn;
     private LocalDateTime updatedOn;
     @Enumerated(EnumType.STRING)
     private Status status;
+    @Column(length=1000)
+    private String description;
+    private String category;
 
     @PrePersist
     void preSave(){

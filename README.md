@@ -1,74 +1,74 @@
-# AI-Powered Help Desk Backend
+# 🤖 AI-Powered Help Desk Backend
 
-A RESTful backend for an AI-powered Help Desk application built with **Spring Boot**, **Spring AI**, **Google Gemini**, and **PostgreSQL**. The application combines traditional ticket management with AI-assisted customer support by enabling intelligent conversations, chat memory, and AI tool calling.
-
----
-
-## Features
-
-* AI-powered customer support using Google Gemini
-* Ticket creation and management
-* Context-aware conversations with chat memory
-* AI tool calling for database operations
-* RESTful APIs for frontend integration
-* PostgreSQL database integration
-* Layered architecture following Spring Boot best practices
+A RESTful backend for an AI-powered Help Desk application built with **Spring Boot**, **Spring AI**, **Google Gemini 2.5 Flash**, and **MySQL**. The application combines AI-assisted customer support with ticket management by enabling intelligent conversations, persistent chat memory, and AI tool calling.
 
 ---
 
-## Tech Stack
+# ✨ Features
 
-| Category   | Technologies               |
-| ---------- | -------------------------- |
-| Language   | Java 21                    |
-| Framework  | Spring Boot                |
-| AI         | Spring AI, Google Gemini   |
-| Database   | PostgreSQL                 |
-| ORM        | Spring Data JPA, Hibernate |
-| Build Tool | Maven                      |
-| Testing    | Postman                    |
+- 🤖 AI-powered customer support using Google Gemini 2.5 Flash
+- 💬 Context-aware conversations with persistent chat memory
+- 🛠 AI Tool Calling using Spring AI
+- 🎫 Ticket creation through AI
+- 🔍 Ticket retrieval from MySQL database
+- 💾 Persistent chat memory using JDBC Repository
+- 🌐 REST APIs for frontend integration
+- 🏗 Clean layered architecture following Spring Boot best practices
 
 ---
 
-## Project Structure
+# 🛠 Tech Stack
 
-```
+| Category | Technologies |
+|----------|--------------|
+| Language | Java 25 |
+| Framework | Spring Boot 3 |
+| AI | Spring AI, Google Gemini 2.5 Flash |
+| Database | MySQL |
+| ORM | Spring Data JPA, Hibernate |
+| Build Tool | Maven |
+| Utilities | Lombok |
+
+---
+
+# 📂 Project Structure
+
+```text
 src
-├── advisor
-├── config
+├── configuration
 ├── controller
-├── dto
 ├── entity
-├── repository
-├── service
+├── exception
+├── repositories
+├── services
 ├── tools
 └── resources
 ```
 
 ---
 
-## Architecture
+# 🏗 Architecture
 
-```
-                React Frontend
-                       │
-                       ▼
-             Spring Boot REST API
-                       │
-        ┌──────────────┴──────────────┐
-        │                             │
-        ▼                             ▼
- Business Services              Spring AI Client
-        │                             │
-        ▼                             ▼
- PostgreSQL Database         Google Gemini API
+```text
+                 React Frontend
+                        │
+                        ▼
+              Spring Boot REST API
+                        │
+          ┌─────────────┴─────────────┐
+          │                           │
+          ▼                           ▼
+    Business Services          Spring AI Client
+          │                           │
+          ▼                           ▼
+      MySQL Database         Google Gemini API
 ```
 
 ---
 
-## Getting Started
+# 🚀 Getting Started
 
-### 1. Clone the repository
+## 1. Clone the Repository
 
 ```bash
 git clone https://github.com/Priyanshu1844/ai-powered-help-desk-backend.git
@@ -76,106 +76,120 @@ git clone https://github.com/Priyanshu1844/ai-powered-help-desk-backend.git
 cd ai-powered-help-desk-backend
 ```
 
-### 2. Configure PostgreSQL
+---
 
-Create a PostgreSQL database and update your configuration.
+## 2. Configure MySQL
 
-```properties
-spring.datasource.url=jdbc:postgresql://localhost:5432/helpdesk
-spring.datasource.username=YOUR_USERNAME
-spring.datasource.password=YOUR_PASSWORD
+Create a MySQL database.
+
+```sql
+CREATE DATABASE spring-ai-project;
 ```
 
-### 3. Configure Gemini API
+Update your `application.yml`.
 
-Add your API key in `application.properties` or `application.yml`.
+```yaml
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/spring-ai-project
+    username: root
+    password: YOUR_PASSWORD
 
-```properties
-spring.ai.google.api-key=YOUR_GEMINI_API_KEY
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+  ai:
+    google:
+      genai:
+        api-key: ${GENAI_API_KEY}
 ```
 
-### 4. Build the project
+---
+
+## 3. Configure Gemini API Key
+
+Create an environment variable.
+
+```text
+GENAI_API_KEY=YOUR_GEMINI_API_KEY
+```
+
+---
+
+## 4. Build the Project
 
 ```bash
 mvn clean install
 ```
 
-### 5. Run the application
+---
+
+## 5. Run the Application
 
 ```bash
 mvn spring-boot:run
 ```
 
-The server starts at:
+The application will start at:
 
-```
+```text
 http://localhost:8080
 ```
 
 ---
 
-## AI Capabilities
+# 🤖 AI Capabilities
 
-The backend integrates Spring AI with Google Gemini to provide:
+The backend leverages Spring AI with Google Gemini to provide:
 
-* Natural language conversations
-* Context-aware responses
-* Chat memory
-* AI tool calling
-* Ticket-related assistance
-
----
-
-## API Modules
-
-### Ticket APIs
-
-* Create Ticket
-* Get Ticket
-* Update Ticket
-* Delete Ticket
-* List All Tickets
-
-### AI APIs
-
-* Chat with AI Assistant
-* Context-aware Conversations
-* Tool Calling
+- Natural language conversations
+- Context-aware chat memory
+- AI Tool Calling
+- Ticket creation
+- Ticket lookup from the database
 
 ---
 
-## Frontend
+# 📌 Core Modules
 
-The frontend for this project is available here:
-
-**https://github.com/Priyanshu1844/ai-powered-help-desk-frontend**
-
----
-
-## Future Improvements
-
-* JWT Authentication
-* Role-Based Access Control
-* Email Notifications
-* File Attachments
-* Vector Database Integration
-* Retrieval-Augmented Generation (RAG)
-* Docker Support
-* Kubernetes Deployment
+- AI Chat Controller
+- Ticket Service
+- Ticket Repository
+- Ticket Database Tool
+- Email Tool
+- Spring AI Configuration
+- Chat Memory Repository
 
 ---
 
-## Author
+# 🌱 Future Improvements
+
+- JWT Authentication
+- Role-Based Access Control (RBAC)
+- Email Notifications
+- File Attachments
+- Vector Database Integration
+- Retrieval-Augmented Generation (RAG)
+- Docker Support
+- Kubernetes Deployment
+
+---
+
+# 👨‍💻 Author
 
 **Priyanshu Mundotia**
 
 B.Tech, Electronics & Communication Engineering
+
 Malaviya National Institute of Technology (MNIT), Jaipur
 
-GitHub: **https://github.com/Priyanshu1844**
+GitHub: https://github.com/Priyanshu1844
+
+LinkedIn: https://www.linkedin.com/in/priyanshu-mundotia/
 
 ---
 
-## License
+# 📄 License
 
 This project is licensed under the MIT License.

@@ -186,8 +186,6 @@ Malaviya National Institute of Technology (MNIT), Jaipur
 
 GitHub: https://github.com/Priyanshu1844
 
-LinkedIn: https://www.linkedin.com/in/priyanshu-mundotia/
-
 ---
 
 # 📄 License

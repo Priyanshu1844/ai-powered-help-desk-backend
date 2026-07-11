@@ -7,6 +7,9 @@ import org.springframework.ai.tool.annotation.Tool;
 import org.springframework.ai.tool.annotation.ToolParam;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
+import java.util.Optional;
+
 @Component
 @RequiredArgsConstructor
 public class TicketDatabaseTool {
@@ -26,7 +29,7 @@ public class TicketDatabaseTool {
 
     }
     @Tool(description = "this tool helps to get ticket by username")
-    public Ticket getTicketByEmail(@ToolParam(description = "it is the email whose ticket is required") String email){
+    public Optional<Ticket> getTicketByEmail(@ToolParam(description = "it is the email whose ticket is required") String email){
         return ticketService.getTicketByEmail(email);
 
     }
@@ -35,8 +38,9 @@ public class TicketDatabaseTool {
         return ticketService.updateTicket(ticket);
     }
     @Tool(description = "This tool helps to get current system time")
-    public String getCurrentTime(){
-        return String.valueOf(System.currentTimeMillis());
+
+    public String getCurrentTime() {
+        return LocalDateTime.now().toString();
     }
 
 }

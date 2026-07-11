@@ -27,7 +27,7 @@ public class TicketService {
         return ticketRepository.save(ticket);
     }
 
-    //update ticket
+
 
 
     public Ticket updateTicket (Ticket ticket) {
@@ -40,12 +40,9 @@ public class TicketService {
     }
 
 
-    //get ticket by username
-    public Ticket getTicketByEmail(String email){
-        return ticketRepository.findByEmail(email)
-                .orElseThrow(()-> new RuntimeException("Ticket not found"));
+    //get ticket by email
+    public Optional<Ticket> getTicketByEmail(String email){
+        return ticketRepository.findByEmail(email);
     }
-
-
 
 }

@@ -9,9 +9,9 @@ A RESTful backend for an AI-powered Help Desk application built with **Spring Bo
 - 🤖 AI-powered customer support using Google Gemini 2.5 Flash
 - 💬 Context-aware conversations with persistent chat memory
 - 🛠 AI Tool Calling using Spring AI
-- 🎫 Ticket creation through AI
+- 🎫 AI-assisted ticket creation
 - 🔍 Ticket retrieval from MySQL database
-- 💾 Persistent chat memory using JDBC Repository
+- 💾 Persistent chat memory using Spring AI JDBC Repository
 - 🌐 REST APIs for frontend integration
 - 🏗 Clean layered architecture following Spring Boot best practices
 
@@ -28,6 +28,7 @@ A RESTful backend for an AI-powered Help Desk application built with **Spring Bo
 | ORM | Spring Data JPA, Hibernate |
 | Build Tool | Maven |
 | Utilities | Lombok |
+| API Testing | Postman |
 
 ---
 
@@ -50,18 +51,18 @@ src
 # 🏗 Architecture
 
 ```text
-                 React Frontend
-                        │
-                        ▼
-              Spring Boot REST API
-                        │
-          ┌─────────────┴─────────────┐
-          │                           │
-          ▼                           ▼
-    Business Services          Spring AI Client
-          │                           │
-          ▼                           ▼
-      MySQL Database         Google Gemini API
+                      React Frontend
+                             │
+                             ▼
+                  Spring Boot REST API
+                             │
+          ┌──────────────────┴──────────────────┐
+          │                                     │
+          ▼                                     ▼
+   Business Services                     Spring AI Client
+          │                                     │
+          ▼                                     ▼
+     MySQL Database                  Google Gemini 2.5 Flash
 ```
 
 ---
@@ -141,13 +142,14 @@ http://localhost:8080
 
 # 🤖 AI Capabilities
 
-The backend leverages Spring AI with Google Gemini to provide:
+The backend integrates **Spring AI** with **Google Gemini 2.5 Flash** to provide:
 
 - Natural language conversations
-- Context-aware chat memory
+- Context-aware responses
+- Persistent chat memory
 - AI Tool Calling
 - Ticket creation
-- Ticket lookup from the database
+- Ticket retrieval from the database
 
 ---
 
@@ -160,6 +162,33 @@ The backend leverages Spring AI with Google Gemini to provide:
 - Email Tool
 - Spring AI Configuration
 - Chat Memory Repository
+- Global Exception Handling
+
+---
+
+# 🌐 REST APIs
+
+The backend exposes REST APIs for:
+
+- AI Chat
+- Ticket Creation
+- Ticket Retrieval
+- AI Tool Calling
+
+---
+
+# 🖥 Frontend
+
+The React frontend for this project is available here:
+
+**Repository:** https://github.com/Priyanshu1844/ai-powered-help-desk-frontend
+
+The frontend communicates with this backend through REST APIs and provides:
+
+- AI Chat Interface
+- Ticket Management
+- Conversation History
+- Responsive User Interface
 
 ---
 
